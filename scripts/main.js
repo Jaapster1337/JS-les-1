@@ -72,3 +72,53 @@ const departments = {
 }
 
 console.log(departments);
+console.log(departments);
+console.log("De afdeling Sales heeft " + departments.sales.numberOfEmployees + " medewerkers");
+console.log("Marketing is een leuke afdeling om te werken. " + departments.marketing.description);
+console.log("De afdeling Customer Service heeft " + departments["customer-service"].numberOfEmployees + " medewerkers");
+console.log("Sales is een uitdagende afdeling om te werken als Verkoopmanager. " + departments.sales.jobs[1].description);
+
+
+
+
+const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]");
+document.getElementById('role-title').textContent = (userInput);
+
+switch (userInput) {
+    case "marketing":
+        document.getElementById('department-description').textContent = (departments.marketing.description+". Er werken op dit moment "+departments.marketing.numberOfEmployees+" medewerkers.");
+        break;
+    case "sales":
+        document.getElementById('department-description').textContent = (departments.sales.description+". Er werken op dit moment "+departments.sales.numberOfEmployees+" medewerkers.");
+        break;
+    case "customer-service":
+        document.getElementById('department-description').textContent = (departments["customer-service"].description+" . Er werken op dit moment "+departments["customer-service"].numberOfEmployees+" medewerkers.");
+        break;
+    default :
+        document.getElementById('error-message').textContent = ("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+        break;
+}
+
+const userInputp2 = prompt("Je koos "+departments[userInput] +". Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n" +
+    "0: "+ departments[userInput].jobs[0].title+",\n" +
+    "1: "+ departments[userInput].jobs[1].title+",\n" +
+    "2: "+ departments[userInput].jobs[2].title+",\n" +
+    "3: "+ departments[userInput].jobs[3].title);
+
+switch (userInputp2){
+    case "0":
+        document.getElementById('role-description').textContent = ("Je koos "+departments[userInput].jobs[userInputp2].title+". Een uitdagende rol! "+departments[userInput].jobs[userInputp2].description+".");
+        break;
+    case "1":
+        document.getElementById('role-description').textContent = ("Je koos "+departments[userInput].jobs[userInputp2].title+". Een uitdagende rol! "+departments[userInput].jobs[userInputp2].description+".");
+        break;
+    case "2":
+        document.getElementById('role-description').textContent = ("Je koos "+departments[userInput].jobs[userInputp2].title+". Een uitdagende rol! "+departments[userInput].jobs[userInputp2].description+".");
+        break;
+    case "3":
+        document.getElementById('role-description').textContent = ("Je koos "+departments[userInput].jobs[userInputp2].title+". Een uitdagende rol! "+departments[userInput].jobs[userInputp2].description+".");
+        break;
+    default:
+        document.getElementById('error-message').textContent = ("Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.");
+        break;
+}
